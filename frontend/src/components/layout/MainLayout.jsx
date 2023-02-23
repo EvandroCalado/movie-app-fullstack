@@ -9,12 +9,12 @@ const MainLayout = () => {
     <>
       <GlobalLoading />
       <Box display="flex" minHeight="100vh">
-        <Topbar/>
+        <Topbar />
         <Box component="main" flexGrow={1} overflow="hidden" minHeight="100vh">
           <Outlet />
         </Box>
       </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 };

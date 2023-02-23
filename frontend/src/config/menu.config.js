@@ -1,34 +1,36 @@
-import HomeOutinedIcon from '@mui/icons-material/HomeMaxOutlined';
-import SlideshowOutilinedIcon from '@mui/icons-material/SlideshowOutilined';
-import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
-import LockResetOutlinedIcon from '@mui/icons-material/LockResetOutlined';
+import {
+  SlideshowOutlined,
+  HomeMaxOutlined,
+  FavoriteBorderOutlined,
+  LiveTvOutlined,
+  SearchOutlined,
+  RateReviewOutlined,
+  LockResetOutlined,
+} from '@mui/icons-material';
 
 const main = [
   {
     display: 'home',
     path: '/',
-    icon: <HomeOutinedIcon />,
+    icon: <HomeMaxOutlined />,
     state: 'home',
   },
   {
     display: 'movies',
     path: '/movie',
-    icon: <SlideshowOutilinedIcon />,
+    icon: <SlideshowOutlined />,
     state: 'movie',
   },
   {
     display: 'tv series',
     path: '/tv',
-    icon: <LiveTvOutlinedIcon />,
+    icon: <LiveTvOutlined />,
     state: 'tv',
   },
   {
     display: 'search',
     path: '/search',
-    icon: <SearchOutlinedIcon />,
+    icon: <SearchOutlined />,
     state: 'search',
   },
 ];
@@ -37,23 +39,23 @@ const user = [
   {
     display: 'favorites',
     path: '/favorites',
-    icon: <FavoriteBorderOutlinedIcon />,
+    icon: <FavoriteBorderOutlined />,
     state: 'favorite',
   },
   {
     display: 'reviews',
     path: '/reviews',
-    icon: <RateReviewOutlinedIcon />,
+    icon: <RateReviewOutlined />,
     state: 'reviews',
   },
   {
     display: 'password update',
     path: '/password-update',
-    icon: <LockResetOutlinedIcon />,
+    icon: <LockResetOutlined />,
     state: 'password.update',
   },
 ];
 
-const menuConfig = {main, user}
+const menuConfig = { main, user };
 
 export default menuConfig;
