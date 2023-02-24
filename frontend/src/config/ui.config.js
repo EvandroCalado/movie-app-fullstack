@@ -47,3 +47,5 @@ const uiConfig = {
     contentMaxWidth: '1366px',
   },
 };
+
+export default uiConfig;

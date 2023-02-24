@@ -18,6 +18,7 @@ import {
   useScrollTrigger,
 } from '@mui/material';
 import UserMenu from './UserMenu';
+import Sidebar from './Sidebar';
 
 const ScrollAppBar = ({ children, window }) => {
   const { themeMode } = useSelector((state) => state.themeMode);
@@ -59,8 +60,11 @@ const Topbar = () => {
     dispatch(setThemeMode(theme));
   };
 
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
     <>
+      <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
       <ScrollAppBar>
         <AppBar elevation={0} sx={{ zIndex: 9999 }}>
           <Toolbar
@@ -70,24 +74,26 @@ const Topbar = () => {
               <IconButton
                 color="inherit"
                 sx={{ mr: 2, display: { md: 'none' } }}
+                onClick={toggleSidebar}
               >
                 <Menu />
               </IconButton>
               <Box
                 sx={{
-                  display: { sx: 'inline-block', mb: 'none' }}}
+                  display: { xs: 'inline-block', md: 'none' },
+                }}
               >
-                <Logo/>
+                <Logo />
               </Box>
             </Stack>
             <Box
               flexGrow={1}
               alignItems="center"
-              display={{ sx: 'none', mb: 'flex' }}
+              display={{ xs: 'none', md: 'flex' }}
             >
-              {/* <Box sx={{marginRight: "30px"}} >
-                    <Logo />
-                </Box> */}
+              <Box sx={{ marginRight: '30px' }}>
+                <Logo />
+              </Box>
               {menuConfig.main.map((item, index) => (
                 <Button
                   key={index}
@@ -104,17 +110,23 @@ const Topbar = () => {
                   {item.display}
                 </Button>
               ))}
-              <IconButton
-              sx={{color: "inherit"}}
-              onClick={onSwithTheme}
-              >
-                {themeMode === themeModes.dark && <DarkModeOutlined/>}
-                {themeMode === themeModes.light && <WbSunnyOutlined/>}
+              <IconButton sx={{ color: 'inherit' }} onClick={onSwithTheme}>
+                {themeMode === themeModes.dark && <DarkModeOutlined />}
+                {themeMode === themeModes.light && <WbSunnyOutlined />}
               </IconButton>
             </Box>
 
-                <UserMenu/>
-
+            <Stack spacing={3} direction="row" alignItems="center">
+              {!user && (
+                <Button
+                  variant="contained"
+                  onClick={() => dispatch(setAuthModalOpen(true))}
+                >
+                  sign in
+                </Button>
+              )}
+            </Stack>
+            {user && <UserMenu />}
           </Toolbar>
         </AppBar>
       </ScrollAppBar>
